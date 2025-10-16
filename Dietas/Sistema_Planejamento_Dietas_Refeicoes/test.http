@@ -1,0 +1,30 @@
+### requisição para raiz 
+GET http://localhost:5123
+
+### CRIAR USUÁRIO
+POST http://localhost:5123/usuarios
+Content-Type: application/json
+
+{
+    "Nome": "Maria ",
+    "Email": "maria @example.com",
+    "Altura": 1.65,
+    "Peso": 65.0,
+    "Objetivo": "Emagrecimento"
+}
+### listar usuários
+GET http://localhost:5123/usuarios
+
+### ATUALIZAR USUÁRIO
+PUT http://localhost:5123/usuarios/1
+Content-Type: application/json
+
+{
+    "Nome": "Maria Silva",
+    "Email": "maria.silva@example.com",
+    "Altura": 1.70,
+    "Peso": 80.0,
+    "Objetivo": "Emagrecimento"
+}
+### EXCLUIR USUÁRIO
+DELETE http://localhost:5123/usuarios/1
