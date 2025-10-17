@@ -1,0 +1,419 @@
+Nome;Tipo;Unidade;CaloriasPorPorcao
+Arroz, integral, cozido;Cereais e derivados;kcal/100g;124
+Arroz, integral, cru;Cereais e derivados;kcal/100g;360
+Arroz, tipo 1, cozido;Cereais e derivados;kcal/100g;128
+Arroz, tipo 1, cru;Cereais e derivados;kcal/100g;358
+Arroz, tipo 2, cozido;Cereais e derivados;kcal/100g;130
+Arroz, tipo 2, cru;Cereais e derivados;kcal/100g;358
+Aveia, flocos, crua;Cereais e derivados;kcal/100g;394
+Biscoito, doce, maisena;Cereais e derivados;kcal/100g;443
+Biscoito, doce, recheado com chocolate;Cereais e derivados;kcal/100g;472
+Biscoito, doce, recheado com morango;Cereais e derivados;kcal/100g;471
+Biscoito, doce, wafer, recheado de chocolate;Cereais e derivados;kcal/100g;502
+Biscoito, doce, wafer, recheado de morango;Cereais e derivados;kcal/100g;513
+Biscoito, salgado, cream cracker;Cereais e derivados;kcal/100g;432
+Bolo, mistura para;Cereais e derivados;kcal/100g;419
+Bolo, pronto, aipim;Cereais e derivados;kcal/100g;324
+Bolo, pronto, chocolate;Cereais e derivados;kcal/100g;410
+Bolo, pronto, coco;Cereais e derivados;kcal/100g;333
+Bolo, pronto, milho;Cereais e derivados;kcal/100g;311
+Canjica, branca, crua;Cereais e derivados;kcal/100g;358
+Canjica, com leite integral;Cereais e derivados;kcal/100g;112
+Cereais, milho, flocos, com sal;Cereais e derivados;kcal/100g;370
+Cereais, milho, flocos, sem sal;Cereais e derivados;kcal/100g;363
+Cereais, mingau, milho, infantil;Cereais e derivados;kcal/100g;394
+Cereais, mistura para vitamina, trigo, cevada e aveia;Cereais e derivados;kcal/100g;381
+Cereal matinal, milho;Cereais e derivados;kcal/100g;365
+Cereal matinal, milho, açúcar;Cereais e derivados;kcal/100g;377
+Creme de arroz, pó;Cereais e derivados;kcal/100g;386
+Creme de milho, pó;Cereais e derivados;kcal/100g;333
+Curau, milho verde;Cereais e derivados;kcal/100g;78
+Curau, milho verde, mistura para;Cereais e derivados;kcal/100g;402
+Farinha, de arroz, enriquecida;Cereais e derivados;kcal/100g;363
+Farinha, de centeio, integral;Cereais e derivados;kcal/100g;336
+Farinha, de milho, amarela;Cereais e derivados;kcal/100g;351
+Farinha, de rosca;Cereais e derivados;kcal/100g;371
+Farinha, de trigo;Cereais e derivados;kcal/100g;360
+Farinha, láctea, de cereais;Cereais e derivados;kcal/100g;415
+Lasanha, massa fresca, cozida;Cereais e derivados;kcal/100g;164
+Lasanha, massa fresca, crua;Cereais e derivados;kcal/100g;220
+Macarrão, instantâneo;Cereais e derivados;kcal/100g;436
+Macarrão, trigo, cru;Cereais e derivados;kcal/100g;371
+Macarrão, trigo, cru, com ovos;Cereais e derivados;kcal/100g;371
+Milho, amido, cru;Cereais e derivados;kcal/100g;361
+Milho, fubá, cru;Cereais e derivados;kcal/100g;353
+Milho, verde, cru;Cereais e derivados;kcal/100g;138
+Milho, verde, enlatado, drenado;Cereais e derivados;kcal/100g;98
+Mingau tradicional, pó;Cereais e derivados;kcal/100g;373
+Pamonha, barra para cozimento, pré-cozida;Cereais e derivados;kcal/100g;171
+Pão, aveia, forma;Cereais e derivados;kcal/100g;343
+Pão, de soja;Cereais e derivados;kcal/100g;309
+Pão, glúten, forma;Cereais e derivados;kcal/100g;253
+Pão, milho, forma;Cereais e derivados;kcal/100g;292
+Pão, trigo, forma, integral;Cereais e derivados;kcal/100g;253
+Pão, trigo, francês;Cereais e derivados;kcal/100g;300
+Pão, trigo, sovado;Cereais e derivados;kcal/100g;311
+Pastel, de carne, cru;Cereais e derivados;kcal/100g;289
+Pastel, de carne, frito;Cereais e derivados;kcal/100g;388
+Pastel, de queijo, cru;Cereais e derivados;kcal/100g;308
+Pastel, de queijo, frito;Cereais e derivados;kcal/100g;422
+Pastel, massa, crua;Cereais e derivados;kcal/100g;310
+Pastel, massa, frita;Cereais e derivados;kcal/100g;570
+Pipoca, com óleo de soja, sem sal;Cereais e derivados;kcal/100g;448
+Polenta, pré-cozida;Cereais e derivados;kcal/100g;103
+Torrada, pão francês;Cereais e derivados;kcal/100g;377
+Abóbora, cabotian, cozida;Verduras, hortaliças e derivados;kcal/100g;48
+Abóbora, cabotian, crua;Verduras, hortaliças e derivados;kcal/100g;39
+Abóbora, menina brasileira, crua;Verduras, hortaliças e derivados;kcal/100g;14
+Abóbora, moranga, crua;Verduras, hortaliças e derivados;kcal/100g;12
+Abóbora, moranga, refogada;Verduras, hortaliças e derivados;kcal/100g;29
+Abóbora, pescoço, crua;Verduras, hortaliças e derivados;kcal/100g;24
+Abobrinha, italiana, cozida;Verduras, hortaliças e derivados;kcal/100g;15
+Abobrinha, italiana, crua;Verduras, hortaliças e derivados;kcal/100g;19
+Abobrinha, italiana, refogada;Verduras, hortaliças e derivados;kcal/100g;24
+Abobrinha, paulista, crua;Verduras, hortaliças e derivados;kcal/100g;31
+Acelga, crua;Verduras, hortaliças e derivados;kcal/100g;21
+Agrião, cru;Verduras, hortaliças e derivados;kcal/100g;17
+Aipo, cru;Verduras, hortaliças e derivados;kcal/100g;19
+Alface, americana, crua;Verduras, hortaliças e derivados;kcal/100g;9
+Alface, crespa, crua;Verduras, hortaliças e derivados;kcal/100g;11
+Alface, lisa, crua;Verduras, hortaliças e derivados;kcal/100g;14
+Alface, roxa, crua;Verduras, hortaliças e derivados;kcal/100g;13
+Alfavaca, crua;Verduras, hortaliças e derivados;kcal/100g;29
+Alho, cru;Verduras, hortaliças e derivados;kcal/100g;113
+Alho-poró, cru;Verduras, hortaliças e derivados;kcal/100g;32
+Almeirão, cru;Verduras, hortaliças e derivados;kcal/100g;18
+Almeirão, refogado;Verduras, hortaliças e derivados;kcal/100g;65
+Batata, baroa, cozida;Verduras, hortaliças e derivados;kcal/100g;80
+Batata, baroa, crua;Verduras, hortaliças e derivados;kcal/100g;101
+Batata, doce, cozida;Verduras, hortaliças e derivados;kcal/100g;77
+Batata, doce, crua;Verduras, hortaliças e derivados;kcal/100g;118
+Batata, frita, tipo chips, industrializada;Verduras, hortaliças e derivados;kcal/100g;543
+Batata, inglesa, cozida;Verduras, hortaliças e derivados;kcal/100g;52
+Batata, inglesa, crua;Verduras, hortaliças e derivados;kcal/100g;64
+Batata, inglesa, frita;Verduras, hortaliças e derivados;kcal/100g;267
+Batata, inglesa, sauté;Verduras, hortaliças e derivados;kcal/100g;68
+Berinjela, cozida;Verduras, hortaliças e derivados;kcal/100g;19
+Berinjela, crua;Verduras, hortaliças e derivados;kcal/100g;20
+Beterraba, cozida;Verduras, hortaliças e derivados;kcal/100g;32
+Beterraba, crua;Verduras, hortaliças e derivados;kcal/100g;49
+Biscoito, polvilho doce;Verduras, hortaliças e derivados;kcal/100g;438
+Brócolis, cozido;Verduras, hortaliças e derivados;kcal/100g;25
+Brócolis, cru;Verduras, hortaliças e derivados;kcal/100g;25
+Cará, cozido;Verduras, hortaliças e derivados;kcal/100g;78
+Cará, cru;Verduras, hortaliças e derivados;kcal/100g;96
+Caruru, cru;Verduras, hortaliças e derivados;kcal/100g;34
+Catalonha, crua;Verduras, hortaliças e derivados;kcal/100g;24
+Catalonha, refogada;Verduras, hortaliças e derivados;kcal/100g;63
+Cebola, crua;Verduras, hortaliças e derivados;kcal/100g;39
+Cebolinha, crua;Verduras, hortaliças e derivados;kcal/100g;20
+Cenoura, cozida;Verduras, hortaliças e derivados;kcal/100g;30
+Cenoura, crua;Verduras, hortaliças e derivados;kcal/100g;34
+Chicória, crua;Verduras, hortaliças e derivados;kcal/100g;14
+Chuchu, cozido;Verduras, hortaliças e derivados;kcal/100g;19
+Chuchu, cru;Verduras, hortaliças e derivados;kcal/100g;17
+Coentro, folhas desidratadas;Verduras, hortaliças e derivados;kcal/100g;309
+Couve, manteiga, crua;Verduras, hortaliças e derivados;kcal/100g;27
+Couve, manteiga, refogada ;Verduras, hortaliças e derivados;kcal/100g;90
+Couve-flor, crua;Verduras, hortaliças e derivados;kcal/100g;23
+Couve-flor, cozida;Verduras, hortaliças e derivados;kcal/100g;19
+Espinafre, Nova Zelândia, cru;Verduras, hortaliças e derivados;kcal/100g;16
+Espinafre, Nova Zelândia, refogado;Verduras, hortaliças e derivados;kcal/100g;67
+Farinha, de mandioca, crua;Verduras, hortaliças e derivados;kcal/100g;361
+Farinha, de mandioca, torrada;Verduras, hortaliças e derivados;kcal/100g;365
+Farinha, de puba;Verduras, hortaliças e derivados;kcal/100g;360
+Fécula, de mandioca;Verduras, hortaliças e derivados;kcal/100g;331
+Feijão, broto, cru;Verduras, hortaliças e derivados;kcal/100g;39
+Inhame, cru;Verduras, hortaliças e derivados;kcal/100g;97
+Jiló, cru;Verduras, hortaliças e derivados;kcal/100g;27
+Jurubeba, crua;Verduras, hortaliças e derivados;kcal/100g;126
+Mandioca, cozida;Verduras, hortaliças e derivados;kcal/100g;125
+Mandioca, crua;Verduras, hortaliças e derivados;kcal/100g;151
+Mandioca, farofa, temperada;Verduras, hortaliças e derivados;kcal/100g;406
+Mandioca, frita;Verduras, hortaliças e derivados;kcal/100g;300
+Manjericão, cru;Verduras, hortaliças e derivados;kcal/100g;21
+Maxixe, cru;Verduras, hortaliças e derivados;kcal/100g;14
+Mostarda, folha, crua;Verduras, hortaliças e derivados;kcal/100g;18
+Nhoque, batata, cozido;Verduras, hortaliças e derivados;kcal/100g;181
+Nabo, cru;Verduras, hortaliças e derivados;kcal/100g;18
+Palmito, juçara, em conserva;Verduras, hortaliças e derivados;kcal/100g;23
+Palmito, pupunha, em conserva;Verduras, hortaliças e derivados;kcal/100g;29
+Pão, de queijo, assado;Verduras, hortaliças e derivados;kcal/100g;363
+Pão, de queijo, cru;Verduras, hortaliças e derivados;kcal/100g;295
+Pepino, cru;Verduras, hortaliças e derivados;kcal/100g;10
+Pimentão, amarelo, cru;Verduras, hortaliças e derivados;kcal/100g;28
+Pimentão, verde, cru;Verduras, hortaliças e derivados;kcal/100g;21
+Pimentão, vermelho, cru;Verduras, hortaliças e derivados;kcal/100g;23
+Polvilho, doce;Verduras, hortaliças e derivados;kcal/100g;351
+Quiabo, cru;Verduras, hortaliças e derivados;kcal/100g;30
+Rabanete, cru;Verduras, hortaliças e derivados;kcal/100g;14
+Repolho, branco, cru;Verduras, hortaliças e derivados;kcal/100g;17
+Repolho, roxo, cru;Verduras, hortaliças e derivados;kcal/100g;31
+Repolho, roxo, refogado;Verduras, hortaliças e derivados;kcal/100g;42
+Rúcula, crua;Verduras, hortaliças e derivados;kcal/100g;13
+Salsa, crua;Verduras, hortaliças e derivados;kcal/100g;33
+Seleta de legumes, enlatada;Verduras, hortaliças e derivados;kcal/100g;57
+Serralha, crua;Verduras, hortaliças e derivados;kcal/100g;30
+Taioba, crua;Verduras, hortaliças e derivados;kcal/100g;34
+Tomate, com semente, cru;Verduras, hortaliças e derivados;kcal/100g;15
+Tomate, extrato;Verduras, hortaliças e derivados;kcal/100g;61
+Tomate, molho industrializado;Verduras, hortaliças e derivados;kcal/100g;38
+Tomate, purê;Verduras, hortaliças e derivados;kcal/100g;28
+Tomate, salada;Verduras, hortaliças e derivados;kcal/100g;21
+Vagem, crua;Verduras, hortaliças e derivados;kcal/100g;25
+Abacate, cru;Frutas e derivados;kcal/100g;96
+Abacaxi, cru;Frutas e derivados;kcal/100g;48
+Abacaxi, polpa, congelada;Frutas e derivados;kcal/100g;31
+Abiu, cru;Frutas e derivados;kcal/100g;62
+Açaí, polpa, com xarope de guaraná e glucose;Frutas e derivados;kcal/100g;110
+Açaí, polpa, congelada;Frutas e derivados;kcal/100g;58
+Acerola, crua;Frutas e derivados;kcal/100g;33
+Acerola, polpa, congelada;Frutas e derivados;kcal/100g;22
+Ameixa, calda, enlatada ;Frutas e derivados;kcal/100g;183
+Ameixa, crua;Frutas e derivados;kcal/100g;53
+Ameixa, em calda, enlatada, drenada ;Frutas e derivados;kcal/100g;177
+Atemóia, crua;Frutas e derivados;kcal/100g;97
+Banana, da terra, crua;Frutas e derivados;kcal/100g;128
+Banana, doce em barra;Frutas e derivados;kcal/100g;280
+Banana, figo, crua;Frutas e derivados;kcal/100g;105
+Banana, maçã, crua;Frutas e derivados;kcal/100g;87
+Banana, nanica, crua;Frutas e derivados;kcal/100g;92
+Banana, ouro, crua;Frutas e derivados;kcal/100g;112
+Banana, pacova, crua;Frutas e derivados;kcal/100g;78
+Banana, prata, crua;Frutas e derivados;kcal/100g;98
+Cacau, cru;Frutas e derivados;kcal/100g;74
+Cajá-Manga, cru;Frutas e derivados;kcal/100g;46
+Cajá, polpa, congelada;Frutas e derivados;kcal/100g;26
+Caju, cru;Frutas e derivados;kcal/100g;43
+Caju, polpa, congelada;Frutas e derivados;kcal/100g;37
+Caju, suco concentrado, envasado;Frutas e derivados;kcal/100g;45
+Caqui, chocolate, cru;Frutas e derivados;kcal/100g;71
+Carambola, crua;Frutas e derivados;kcal/100g;46
+Ciriguela, crua;Frutas e derivados;kcal/100g;76
+Cupuaçu, cru;Frutas e derivados;kcal/100g;49
+Cupuaçu, polpa, congelada;Frutas e derivados;kcal/100g;49
+Figo, cru;Frutas e derivados;kcal/100g;41
+Figo, enlatado, em calda;Frutas e derivados;kcal/100g;184
+Fruta-pão, crua;Frutas e derivados;kcal/100g;67
+Goiaba, branca, com casca, crua;Frutas e derivados;kcal/100g;52
+Goiaba, doce em pasta;Frutas e derivados;kcal/100g;269
+Goiaba, doce, cascão;Frutas e derivados;kcal/100g;286
+Goiaba, vermelha, com casca, crua;Frutas e derivados;kcal/100g;54
+Graviola, crua;Frutas e derivados;kcal/100g;62
+Graviola, polpa, congelada;Frutas e derivados;kcal/100g;38
+Jabuticaba, crua;Frutas e derivados;kcal/100g;58
+Jaca, crua;Frutas e derivados;kcal/100g;88
+Jambo, cru;Frutas e derivados;kcal/100g;27
+Jamelão, cru;Frutas e derivados;kcal/100g;41
+Kiwi, cru;Frutas e derivados;kcal/100g;51
+Laranja, baía, crua;Frutas e derivados;kcal/100g;45
+Laranja, baía, suco;Frutas e derivados;kcal/100g;37
+Laranja, da terra, crua;Frutas e derivados;kcal/100g;51
+Laranja, da terra, suco;Frutas e derivados;kcal/100g;41
+Laranja, lima, crua;Frutas e derivados;kcal/100g;46
+Laranja, lima, suco;Frutas e derivados;kcal/100g;39
+Laranja, pêra, crua;Frutas e derivados;kcal/100g;37
+Laranja, pêra, suco;Frutas e derivados;kcal/100g;33
+Laranja, valência, crua;Frutas e derivados;kcal/100g;46
+Laranja, valência, suco;Frutas e derivados;kcal/100g;36
+Limão, cravo, suco;Frutas e derivados;kcal/100g;20
+Limão, galego, cru;Frutas e derivados;kcal/100g;28
+Limão, galego, suco;Frutas e derivados;kcal/100g;26
+Limão, taiti, cru;Frutas e derivados;kcal/100g;28
+Limão, taiti, suco;Frutas e derivados;kcal/100g;26
+Maçã, com casca, crua;Frutas e derivados;kcal/100g;56
+Maçã, sem casca, crua;Frutas e derivados;kcal/100g;57
+Mamão, Formosa, cru;Frutas e derivados;kcal/100g;45
+Mamão, papaia, cru;Frutas e derivados;kcal/100g;40
+Manga, palmer, crua;Frutas e derivados;kcal/100g;64
+Manga, rosa, crua;Frutas e derivados;kcal/100g;60
+Maracujá, cru;Frutas e derivados;kcal/100g;68
+Maracujá, polpa, congelada;Frutas e derivados;kcal/100g;46
+Melancia, crua;Frutas e derivados;kcal/100g;31
+Melão, cru;Frutas e derivados;kcal/100g;29
+Mexerica, crua;Frutas e derivados;kcal/100g;48
+Morango, cru;Frutas e derivados;kcal/100g;30
+Nêspera, crua;Frutas e derivados;kcal/100g;61
+Pequi, cru;Frutas e derivados;kcal/100g;205
+Pêra, com casca, crua;Frutas e derivados;kcal/100g;53
+Pêssego, enlatado, em calda;Frutas e derivados;kcal/100g;68
+Pêssego, inteiro, cru;Frutas e derivados;kcal/100g;37
+Pinha, crua;Frutas e derivados;kcal/100g;97
+Pupunha, cozida;Frutas e derivados;kcal/100g;248
+Pupunha, crua;Frutas e derivados;kcal/100g;245
+Tangerina, Poncã, crua;Frutas e derivados;kcal/100g;48
+Tamarindo, polpa;Frutas e derivados;kcal/100g;236
+Tucumã, cru;Frutas e derivados;kcal/100g;246
+Umbu, cru;Frutas e derivados;kcal/100g;55
+Uva, itália, crua;Frutas e derivados;kcal/100g;53
+Uva, rubi, crua;Frutas e derivados;kcal/100g;54
+Uva, thompson, crua;Frutas e derivados;kcal/100g;57
+Aipo, semente;Temperos e condimentos;kcal/100g;392
+Alho, em pó;Temperos e condimentos;kcal/100g;331
+Canela, em pó;Temperos e condimentos;kcal/100g;277
+Cheiro-verde, cru;Temperos e condimentos;kcal/100g;32
+Colorau;Temperos e condimentos;kcal/100g;329
+Cominho, em pó;Temperos e condimentos;kcal/100g;418
+Cravo, em pó;Temperos e condimentos;kcal/100g;336
+Curry, pó;Temperos e condimentos;kcal/100g;325
+Gengibre, em pó;Temperos e condimentos;kcal/100g;335
+Louro, folha, seca;Temperos e condimentos;kcal/100g;329
+Manjerona, seca;Temperos e condimentos;kcal/100g;310
+Noz-moscada, em pó;Temperos e condimentos;kcal/100g;506
+Orégano, seco;Temperos e condimentos;kcal/100g;288
+Páprica;Temperos e condimentos;kcal/100g;289
+Pimenta, do reino, branca;Temperos e condimentos;kcal/100g;348
+Pimenta, do reino, preta;Temperos e condimentos;kcal/100g;290
+Sal;Temperos e condimentos;kcal/100g;Tr
+Sal, grosso;Temperos e condimentos;kcal/100g;Tr
+Salsa, desidratada;Temperos e condimentos;kcal/100g;276
+Sementes de gergelim;Temperos e condimentos;kcal/100g;582
+Sementes de linhaça;Temperos e condimentos;kcal/100g;491
+Açúcar, cristal;Açúcares e derivados;kcal/100g;387
+Açúcar, demerara;Açúcares e derivados;kcal/100g;387
+Açúcar, mascavo;Açúcares e derivados;kcal/100g;383
+Açúcar, refinado;Açúcares e derivados;kcal/100g;387
+Bala, de goma;Açúcares e derivados;kcal/100g;346
+Chocolate, ao leite;Açúcares e derivados;kcal/100g;550
+Chocolate, ao leite, com castanha-de-caju;Açúcares e derivados;kcal/100g;557
+Chocolate, ao leite, com flocos de arroz;Açúcares e derivados;kcal/100g;527
+Chocolate, meio amargo;Açúcares e derivados;kcal/100g;521
+Doce de leite, cremoso;Açúcares e derivados;kcal/100g;306
+Geleia, mocotó;Açúcares e derivados;kcal/100g;326
+Mel;Açúcares e derivados;kcal/100g;317
+Melado;Açúcares e derivados;kcal/100g;297
+Mousse, chocolate, pó;Açúcares e derivados;kcal/100g;436
+Mousse, morango, pó;Açúcares e derivados;kcal/100g;403
+Achocolatado, pó;Produtos açucarados;kcal/100g;393
+Bebida, láctea, de chocolate, pronta;Produtos açucarados;kcal/100g;70
+Gelatina, preparo;Produtos açucarados;kcal/100g;374
+Pó para refresco, morango;Produtos açucarados;kcal/100g;384
+Pudim, baunilha, pó;Produtos açucarados;kcal/100g;388
+Pudim, chocolate, pó;Produtos açucarados;kcal/100g;387
+Abacaxi, em calda, enlatado, drenado;Frutas enlatadas e conservas;kcal/100g;82
+Pêssego, em calda, enlatado, drenado;Frutas enlatadas e conservas;kcal/100g;62
+Alho, frito, em conserva;Gorduras e óleos;kcal/100g;493
+Azeite de dendê;Gorduras e óleos;kcal/100g;884
+Azeite de oliva;Gorduras e óleos;kcal/100g;884
+Manteiga, com sal;Gorduras e óleos;kcal/100g;729
+Manteiga, sem sal;Gorduras e óleos;kcal/100g;729
+Margarina, 35% de lipídeos;Gorduras e óleos;kcal/100g;328
+Margarina, 65% de lipídeos;Gorduras e óleos;kcal/100g;606
+Margarina, 80% de lipídeos;Gorduras e óleos;kcal/100g;726
+Óleo de girassol;Gorduras e óleos;kcal/100g;884
+Óleo de milho;Gorduras e óleos;kcal/100g;884
+Óleo de soja;Gorduras e óleos;kcal/100g;884
+Banha suína;Gorduras e óleos;kcal/100g;898
+Milho, em conserva, enlatado;Hortaliças e leguminosas;kcal/100g;108
+Ervilha, em conserva, enlatada;Leguminosas e derivados;kcal/100g;93
+Feijão, carioca, cozido;Leguminosas e derivados;kcal/100g;76
+Feijão, carioca, cru;Leguminosas e derivados;kcal/100g;341
+Feijão, jalo, cozido;Leguminosas e derivados;kcal/100g;85
+Feijão, jalo, cru;Leguminosas e derivados;kcal/100g;350
+Feijão, preto, cozido;Leguminosas e derivados;kcal/100g;85
+Feijão, preto, cru;Leguminosas e derivados;kcal/100g;348
+Feijão, rosinha, cozido;Leguminosas e derivados;kcal/100g;88
+Feijão, rosinha, cru;Leguminosas e derivados;kcal/100g;347
+Feijão, roxo, cozido;Leguminosas e derivados;kcal/100g;76
+Feijão, roxo, cru;Leguminosas e derivados;kcal/100g;349
+Feijão, verde, cru;Leguminosas e derivados;kcal/100g;349
+Grão-de-bico, cozido;Leguminosas e derivados;kcal/100g;129
+Grão-de-bico, cru;Leguminosas e derivados;kcal/100g;364
+Lentilha, cozida;Leguminosas e derivados;kcal/100g;94
+Lentilha, crua;Leguminosas e derivados;kcal/100g;337
+Pão, de queijo, massa, crua;Leguminosas e derivados;kcal/100g;299
+Soja, farinha;Leguminosas e derivados;kcal/100g;416
+Soja, extrato solúvel, pó;Leguminosas e derivados;kcal/100g;410
+Soja, extrato solúvel, pronto;Leguminosas e derivados;kcal/100g;43
+Soja, queijo (tofu);Leguminosas e derivados;kcal/100g;62
+Tremoço, cozido;Leguminosas e derivados;kcal/100g;111
+Tremoço, cru;Leguminosas e derivados;kcal/100g;371
+Amendoim, torrado, salgado;Nozes e sementes;kcal/100g;585
+Amêndoa, torrada, salgada;Nozes e sementes;kcal/100g;581
+Castanha-de-caju, torrada, salgada;Nozes e sementes;kcal/100g;570
+Castanha-do-Brasil, crua;Nozes e sementes;kcal/100g;643
+Coco, cru;Nozes e sementes;kcal/100g;406
+Coco, desidratado;Nozes e sementes;kcal/100g;606
+Coco, extrato, seco, pó;Nozes e sementes;kcal/100g;659
+Coco, leite de, industrializado;Nozes e sementes;kcal/100g;168
+Coco, polpa, desidratada;Nozes e sementes;kcal/100g;648
+Coco, verde, água;Nozes e sementes;kcal/100g;22
+Coco, verde, polpa;Nozes e sementes;kcal/100g;63
+Gergelim, sementes;Nozes e sementes;kcal/100g;582
+Nozes;Nozes e sementes;kcal/100g;685
+Pinhão, cozido;Nozes e sementes;kcal/100g;174
+Semente de abóbora, salgada;Nozes e sementes;kcal/100g;584
+Semente de girassol, crua;Nozes e sementes;kcal/100g;570
+Semente de melancia, torrada, salgada;Nozes e sementes;kcal/100g;585
+Semente de sésamo, sementes;Nozes e sementes;kcal/100g;582
+Abóbora, semente, torrada e salgada;Nozes e sementes;kcal/100g;584
+Caju, suco concentrado, congelado;Bebidas;kcal/100g;44
+Laranja, suco, concentrado e congelado;Bebidas;kcal/100g;45
+Maracujá, suco, concentrado e congelado;Bebidas;kcal/100g;36
+Groselha, xarope;Bebidas;kcal/100g;291
+Pêssego, suco, caixa;Bebidas;kcal/100g;46
+Refrigerante, tipo água tônica;Bebidas;kcal/100g;41
+Refrigerante, tipo cola;Bebidas;kcal/100g;40
+Refrigerante, tipo laranja;Bebidas;kcal/100g;40
+Refrigerante, tipo limão;Bebidas;kcal/100g;38
+Refrigerante, tipo guaraná;Bebidas;kcal/100g;42
+Creme de leite;Leite e derivados;kcal/100g;207
+Iogurte, natural;Leite e derivados;kcal/100g;60
+Leite, de cabra;Leite e derivados;kcal/100g;66
+Leite, de vaca, integral;Leite e derivados;kcal/100g;58
+Leite, de vaca, integral, pó;Leite e derivados;kcal/100g;496
+Leite, de vaca, desnatado;Leite e derivados;kcal/100g;35
+Leite, de vaca, desnatado, pó;Leite e derivados;kcal/100g;368
+Leite, de vaca, semidesnatado;Leite e derivados;kcal/100g;45
+Leite fermentado;Leite e derivados;kcal/100g;76
+Queijo, minas, frescal;Leite e derivados;kcal/100g;257
+Queijo, minas, padrão;Leite e derivados;kcal/100g;321
+Queijo, mozarela;Leite e derivados;kcal/100g;330
+Queijo, parmesão;Leite e derivados;kcal/100g;453
+Queijo, prato;Leite e derivados;kcal/100g;371
+Requeijão, cremoso;Leite e derivados;kcal/100g;247
+Ricota;Leite e derivados;kcal/100g;174
+Alcatra, bovina, crua;Carnes e derivados;kcal/100g;118
+Alcatra, bovina, grelhada;Carnes e derivados;kcal/100g;166
+Bacalhau, salgado, cru;Carnes e derivados;kcal/100g;119
+Carne, bovina, cozida;Carnes e derivados;kcal/100g;221
+Carne, bovina, moída, crua;Carnes e derivados;kcal/100g;219
+Carne, bovina, moída, frita;Carnes e derivados;kcal/100g;231
+Carne, bovina, patinho, cru;Carnes e derivados;kcal/100g;133
+Carne, bovina, patinho, grelhado;Carnes e derivados;kcal/100g;161
+Carne, bovina, picanha, crua;Carnes e derivados;kcal/100g;220
+Carne, bovina, picanha, grelhada;Carnes e derivados;kcal/100g;275
+Carne de carneiro, crua;Carnes e derivados;kcal/100g;114
+Carne de carneiro, cozida;Carnes e derivados;kcal/100g;228
+Filé-mignon, bovino, cru;Carnes e derivados;kcal/100g;143
+Filé-mignon, bovino, grelhado;Carnes e derivados;kcal/100g;167
+Fígado, de galinha, cru;Carnes e derivados;kcal/100g;116
+Fígado, de galinha, grelhado;Carnes e derivados;kcal/100g;151
+Fígado, de boi, cru;Carnes e derivados;kcal/100g;124
+Fígado, de boi, grelhado;Carnes e derivados;kcal/100g;162
+Galinha, crua;Carnes e derivados;kcal/100g;126
+Galinha, cozida;Carnes e derivados;kcal/100g;206
+Lingüiça, porco, crua;Carnes e derivados;kcal/100g;338
+Lingüiça, porco, frita;Carnes e derivados;kcal/100g;436
+Mortadela;Carnes e derivados;kcal/100g;288
+Ostra, crua;Carnes e derivados;kcal/100g;69
+Pargo, cru;Carnes e derivados;kcal/100g;104
+Pargo, grelhado;Carnes e derivados;kcal/100g;143
+Peito de frango, cru;Carnes e derivados;kcal/100g;119
+Peito de frango, grelhado;Carnes e derivados;kcal/100g;159
+Peito de peru, cru;Carnes e derivados;kcal/100g;109
+Peito de peru, cozido;Carnes e derivados;kcal/100g;135
+Perna de frango, crua;Carnes e derivados;kcal/100g;132
+Perna de frango, cozida;Carnes e derivados;kcal/100g;189
+Pescada, crua;Carnes e derivados;kcal/100g;90
+Pescada, cozida;Carnes e derivados;kcal/100g;131
+Picanha, bovina, crua;Carnes e derivados;kcal/100g;220
+Picanha, bovina, grelhada;Carnes e derivados;kcal/100g;275
+Presunto, cozido;Carnes e derivados;kcal/100g;183
+Salame;Carnes e derivados;kcal/100g;418
+Salsicha, cozida;Carnes e derivados;kcal/100g;248
+Salsicha, crua;Carnes e derivados;kcal/100g;271
+Sardinha, em óleo, enlatada;Carnes e derivados;kcal/100g;219
+Sobrecoxa de frango, sem pele, crua;Carnes e derivados;kcal/100g;151
+Sobrecoxa de frango, sem pele, cozida;Carnes e derivados;kcal/100g;202
+Vagem, em conserva, enlatada;Leguminosas e derivados;kcal/100g;25

@@ -28,3 +28,39 @@ Content-Type: application/json
 }
 ### EXCLUIR USUÁRIO
 DELETE http://localhost:5123/usuarios/1
+
+################################################
+#                 ALIMENTOS                    #
+################################################
+
+### LISTAR ALIMENTOS
+GET http://localhost:5123/alimentos 
+
+### CRIAR ALIMENTO
+POST http://localhost:5123/alimentos
+Content-Type: application/json
+
+{
+    "Nome": "Feijoada",
+    "Tipo": "Proteína",
+    "Unidade": "g",
+    "CaloriasPorPorcao": 150
+}
+
+### BUSCAR ALIMENTO POR ID
+GET http://localhost:5123/alimentos/1
+
+### ATUALIZAR ALIMENTO
+PUT http://localhost:5123/alimentos/418
+Content-Type: application/json
+
+{
+    "Nome": "Feijão Preto",
+    "Tipo": "Proteína",
+    "Unidade": "g",
+    "CaloriasPorPorcao": 160
+}
+
+### EXCLUIR ALIMENTO
+DELETE http://localhost:5123/alimentos/418
+

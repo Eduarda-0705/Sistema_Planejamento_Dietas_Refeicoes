@@ -8,6 +8,8 @@ public class AppDataContext : DbContext
 {
     public DbSet<Usuario> Usuarios { get; set; }
     public DbSet<Refeicao> Refeicoes { get; set; }
+    public DbSet<Alimento> Alimentos { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlite("Data Source=Sistema_Planejamento_Dietas_Refeicoes.db");
