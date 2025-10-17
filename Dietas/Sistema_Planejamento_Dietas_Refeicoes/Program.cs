@@ -2,10 +2,17 @@ using Microsoft.EntityFrameworkCore;
 using Sistema_Planejamento_Dietas_Refeicoes.Models;
 using System.Globalization;
 using System.IO;
+using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Http.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppDataContext>();
+
+builder.Services.Configure<JsonOptions>(options =>
+{
+    options.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+});
 
 var app = builder.Build();
 
@@ -274,5 +281,81 @@ app.MapDelete("/alimentos/{id}", async (int id, AppDataContext context) =>
 });
 
 
+
+// ========== ENDPOINTS DE REFEIÇÃO ==========
+
+app.MapPost("/refeicoes", async (Refeicao refeicao, AppDataContext context) =>
+{
+    // 1. Validar se o usuário associado à refeição existe
+    var usuario = await context.Usuarios.FindAsync(refeicao.usuarioId);
+    if (usuario == null)
+    {
+        return Results.NotFound("Usuário não encontrado.");
+    }
+
+    // Anexa o usuário encontrado ao objeto da refeição
+    refeicao.usuario = usuario;
+
+    // 2. Iterar sobre os alimentos recebidos para validar e carregar os dados completos
+    if (refeicao.RefeicaoAlimentos != null && refeicao.RefeicaoAlimentos.Any())
+    {
+        foreach (var refeicaoAlimento in refeicao.RefeicaoAlimentos)
+        {
+            // O cliente enviou apenas o AlimentoId. Precisamos buscar o objeto Alimento completo.
+            var alimento = await context.Alimentos.FindAsync(refeicaoAlimento.AlimentoId);
+            if (alimento == null)
+            {
+                return Results.BadRequest($"Alimento com ID {refeicaoAlimento.AlimentoId} não encontrado.");
+            }
+            // "Completa" o objeto com a entidade Alimento que buscamos do banco
+            refeicaoAlimento.Alimento = alimento;
+        }
+    }
+
+    // 3. Salvar a refeição (e suas associações) no banco de dados
+    context.Refeicoes.Add(refeicao);
+    await context.SaveChangesAsync();
+
+    return Results.Created($"/refeicoes/{refeicao.id}", refeicao);
+});
+
+// BUSCAR REFEIÇÃO POR ID
+app.MapGet("/refeicoes/{id}", async (int id, AppDataContext context) =>
+{
+    // Busca a refeição pelo ID, incluindo os dados da tabela de junção
+    // e, em seguida, incluindo os dados de cada Alimento associado.
+    var refeicao = await context.Refeicoes
+        .Include(r => r.RefeicaoAlimentos)
+        .ThenInclude(ra => ra.Alimento)
+        .FirstOrDefaultAsync(r => r.id == id);
+
+    if (refeicao == null)
+    {
+        return Results.NotFound("Refeição não encontrada.");
+    }
+
+    return Results.Ok(refeicao);
+});
+
+// DELETAR REFEIÇÃO
+app.MapDelete("/refeicoes/{id}", async (int id, AppDataContext context) =>
+{
+    // Busca a refeição, garantindo que suas associações na tabela de junção sejam carregadas.
+    var refeicao = await context.Refeicoes
+        .Include(r => r.RefeicaoAlimentos)
+        .FirstOrDefaultAsync(r => r.id == id);
+
+    if (refeicao == null)
+    {
+        return Results.NotFound("Refeição não encontrada.");
+    }
+
+    // Ao remover a refeição, o EF entende que também deve remover os registros dependentes
+    // em RefeicaoAlimentos que foram carregados pelo .Include().
+    context.Refeicoes.Remove(refeicao);
+    await context.SaveChangesAsync();
+
+    return Results.Ok("Refeição deletada com sucesso.");
+});
 
 app.Run();

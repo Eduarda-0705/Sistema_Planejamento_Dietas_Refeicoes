@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Sistema_Planejamento_Dietas_Refeicoes.Models;
 
@@ -10,9 +11,11 @@ using Sistema_Planejamento_Dietas_Refeicoes.Models;
 namespace Sistema_Planejamento_Dietas_Refeicoes.Migrations
 {
     [DbContext(typeof(AppDataContext))]
-    partial class AppDataContextModelSnapshot : ModelSnapshot
+    [Migration("20251017023352_RemoveCalculatedFieldsFromRefeicao")]
+    partial class RemoveCalculatedFieldsFromRefeicao
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.10");

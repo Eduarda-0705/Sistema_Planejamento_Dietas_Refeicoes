@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Sistema_Planejamento_Dietas_Refeicoes.Models;
 
@@ -10,9 +11,11 @@ using Sistema_Planejamento_Dietas_Refeicoes.Models;
 namespace Sistema_Planejamento_Dietas_Refeicoes.Migrations
 {
     [DbContext(typeof(AppDataContext))]
-    partial class AppDataContextModelSnapshot : ModelSnapshot
+    [Migration("20251017014910_AddRefeicaoAlimentoRelationship")]
+    partial class AddRefeicaoAlimentoRelationship
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.10");
@@ -46,14 +49,26 @@ namespace Sistema_Planejamento_Dietas_Refeicoes.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("calorias")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double>("carboidratos")
+                        .HasColumnType("REAL");
+
                     b.Property<DateTime>("dataRefeicao")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("descricao")
                         .HasColumnType("TEXT");
 
+                    b.Property<double>("gorduras")
+                        .HasColumnType("REAL");
+
                     b.Property<string>("nome")
                         .HasColumnType("TEXT");
+
+                    b.Property<double>("proteinas")
+                        .HasColumnType("REAL");
 
                     b.Property<int>("usuarioId")
                         .HasColumnType("INTEGER");
@@ -93,15 +108,18 @@ namespace Sistema_Planejamento_Dietas_Refeicoes.Migrations
                         .HasColumnType("REAL");
 
                     b.Property<string>("Objetivo")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<double>("Peso")
                         .HasColumnType("REAL");
 
                     b.Property<string>("email")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("nome")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("id");

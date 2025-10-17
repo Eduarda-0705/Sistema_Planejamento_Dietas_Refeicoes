@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sistema_Planejamento_Dietas_Refeicoes", "Sistema_Planejamento_Dietas_Refeicoes.csproj", "{FFCE172B-D165-611F-4D3A-72DC62CFBCDA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFCE172B-D165-611F-4D3A-72DC62CFBCDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFCE172B-D165-611F-4D3A-72DC62CFBCDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFCE172B-D165-611F-4D3A-72DC62CFBCDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFCE172B-D165-611F-4D3A-72DC62CFBCDA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6D83D92C-B69F-442D-9725-92C2ED3BEDCA}
+	EndGlobalSection
+EndGlobal

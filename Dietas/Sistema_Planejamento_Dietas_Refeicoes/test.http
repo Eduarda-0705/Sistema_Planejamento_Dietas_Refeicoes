@@ -16,7 +16,7 @@ Content-Type: application/json
 GET http://localhost:5123/usuarios
 
 ### ATUALIZAR USUÁRIO
-PUT http://localhost:5123/usuarios/1
+PUT http://localhost:5123/usuarios/2
 Content-Type: application/json
 
 {
@@ -27,7 +27,7 @@ Content-Type: application/json
     "Objetivo": "Emagrecimento"
 }
 ### EXCLUIR USUÁRIO
-DELETE http://localhost:5123/usuarios/1
+DELETE http://localhost:5123/usuarios/2
 
 ################################################
 #                 ALIMENTOS                    #
@@ -64,3 +64,57 @@ Content-Type: application/json
 ### EXCLUIR ALIMENTO
 DELETE http://localhost:5123/alimentos/418
 
+################################################
+#
+# REFEIÇÕES
+#
+################################################
+
+### CRIAR UMA NOVA REFEIÇÃO
+# @name CRIAR_REFEICAO
+POST http://localhost:5123/refeicoes
+Content-Type: application/json
+
+{
+  "usuarioId": 3,
+  "nome": "Almoço Pós-Correção",
+  "descricao": "Testando a criação de refeições com seus alimentos.",
+  "dataRefeicao": "2025-10-19T12:30:00",
+  "refeicaoAlimentos": [
+    {
+      "alimentoId": 10,
+      "quantidade": 150
+    },
+    {
+      "alimentoId": 25,
+      "quantidade": 100
+    }
+  ]
+}
+
+### BUSCAR A REFEIÇÃO CRIADA POR ID
+# A variável @refeicaoId é preenchida automaticamente com o ID da refeição criada acima
+@refeicaoId = {{CRIAR_REFEICAO.response.body.id}}
+GET http://localhost:5123/refeicoes/{{refeicaoId}}
+
+
+### DELETAR A REFEIÇÃO CRIADA
+DELETE http://localhost:5123/refeicoes/{{refeicaoId}}
+
+
+### TENTAR CRIAR UMA REFEIÇÃO PARA UM USUÁRIO INEXISTENTE (Cenário de Erro)
+POST http://localhost:5123/refeicoes
+Content-Type: application/json
+
+{
+  "usuarioId": 999,
+  "nome": "Refeição Fantasma",
+  "descricao": "Isso deve falhar.",
+  "dataRefeicao": "2025-10-19T13:00:00",
+  "refeicaoAlimentos": [
+    {
+      "alimentoId": 10,
+      "quantidade": 100
+    }
+  ]
+}
