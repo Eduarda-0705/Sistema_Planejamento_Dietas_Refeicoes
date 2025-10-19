@@ -11,14 +11,37 @@ using Sistema_Planejamento_Dietas_Refeicoes.Models;
 namespace Sistema_Planejamento_Dietas_Refeicoes.Migrations
 {
     [DbContext(typeof(AppDataContext))]
-    [Migration("20251016130132_InitialCreate")]
+    [Migration("20251019151625_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "9.0.10");
+            modelBuilder.HasAnnotation("ProductVersion", "8.0.6");
+
+            modelBuilder.Entity("Sistema_Planejamento_Dietas_Refeicoes.Models.Alimento", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double>("CaloriasPorPorcao")
+                        .HasColumnType("REAL");
+
+                    b.Property<string>("Nome")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Tipo")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Unidade")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Alimentos");
+                });
 
             modelBuilder.Entity("Sistema_Planejamento_Dietas_Refeicoes.Models.Refeicao", b =>
                 {
@@ -26,28 +49,14 @@ namespace Sistema_Planejamento_Dietas_Refeicoes.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("calorias")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<double>("carboidratos")
-                        .HasColumnType("REAL");
-
                     b.Property<DateTime>("dataRefeicao")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("descricao")
-                        .IsRequired()
                         .HasColumnType("TEXT");
-
-                    b.Property<double>("gorduras")
-                        .HasColumnType("REAL");
 
                     b.Property<string>("nome")
-                        .IsRequired()
                         .HasColumnType("TEXT");
-
-                    b.Property<double>("proteinas")
-                        .HasColumnType("REAL");
 
                     b.Property<int>("usuarioId")
                         .HasColumnType("INTEGER");
@@ -57,6 +66,24 @@ namespace Sistema_Planejamento_Dietas_Refeicoes.Migrations
                     b.HasIndex("usuarioId");
 
                     b.ToTable("Refeicoes");
+                });
+
+            modelBuilder.Entity("Sistema_Planejamento_Dietas_Refeicoes.Models.RefeicaoAlimento", b =>
+                {
+                    b.Property<int>("RefeicaoId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("AlimentoId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double>("Quantidade")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("RefeicaoId", "AlimentoId");
+
+                    b.HasIndex("AlimentoId");
+
+                    b.ToTable("RefeicaoAlimentos");
                 });
 
             modelBuilder.Entity("Sistema_Planejamento_Dietas_Refeicoes.Models.Usuario", b =>
@@ -69,18 +96,15 @@ namespace Sistema_Planejamento_Dietas_Refeicoes.Migrations
                         .HasColumnType("REAL");
 
                     b.Property<string>("Objetivo")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<double>("Peso")
                         .HasColumnType("REAL");
 
                     b.Property<string>("email")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("nome")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("id");
@@ -97,6 +121,35 @@ namespace Sistema_Planejamento_Dietas_Refeicoes.Migrations
                         .IsRequired();
 
                     b.Navigation("usuario");
+                });
+
+            modelBuilder.Entity("Sistema_Planejamento_Dietas_Refeicoes.Models.RefeicaoAlimento", b =>
+                {
+                    b.HasOne("Sistema_Planejamento_Dietas_Refeicoes.Models.Alimento", "Alimento")
+                        .WithMany("RefeicaoAlimentos")
+                        .HasForeignKey("AlimentoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Sistema_Planejamento_Dietas_Refeicoes.Models.Refeicao", "Refeicao")
+                        .WithMany("RefeicaoAlimentos")
+                        .HasForeignKey("RefeicaoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Alimento");
+
+                    b.Navigation("Refeicao");
+                });
+
+            modelBuilder.Entity("Sistema_Planejamento_Dietas_Refeicoes.Models.Alimento", b =>
+                {
+                    b.Navigation("RefeicaoAlimentos");
+                });
+
+            modelBuilder.Entity("Sistema_Planejamento_Dietas_Refeicoes.Models.Refeicao", b =>
+                {
+                    b.Navigation("RefeicaoAlimentos");
                 });
 
             modelBuilder.Entity("Sistema_Planejamento_Dietas_Refeicoes.Models.Usuario", b =>

@@ -16,18 +16,18 @@ Content-Type: application/json
 GET http://localhost:5123/usuarios
 
 ### ATUALIZAR USUÁRIO
-PUT http://localhost:5123/usuarios/3
+PUT http://localhost:5123/usuarios/2
 Content-Type: application/json
 
 {
-    "Nome": "Maria Silva",
-    "Email": "maria.silva@example.com",
+    "Nome": "Maria Clara",
+    "Email": "maria.clara@example.com",
     "Altura": 1.70,
-    "Peso": 80.0,
-    "Objetivo": "Emagrecimento"
+    "Peso": 58.0,
+    "Objetivo": "Ganho de Massa"
 }
 ### EXCLUIR USUÁRIO
-DELETE http://localhost:5123/usuarios/4
+DELETE http://localhost:5123/usuarios/1
 
 ################################################
 #                 ALIMENTOS                    #
@@ -48,10 +48,10 @@ Content-Type: application/json
 }
 
 ### BUSCAR ALIMENTO POR ID
-GET http://localhost:5123/alimentos/2
+GET http://localhost:5123/alimentos/417
 
 ### ATUALIZAR ALIMENTO
-PUT http://localhost:5123/alimentos/418
+PUT http://localhost:5123/alimentos/417
 Content-Type: application/json
 
 {
@@ -62,7 +62,7 @@ Content-Type: application/json
 }
 
 ### EXCLUIR ALIMENTO
-DELETE http://localhost:5123/alimentos/418
+DELETE http://localhost:5123/alimentos/417
 
 ################################################
 #
@@ -76,7 +76,7 @@ POST http://localhost:5123/refeicoes
 Content-Type: application/json
 
 {
-  "usuarioId": 3,
+  "usuarioId": 2,
   "nome": "Almoço",
   "descricao": "Testando a criação de refeições com seus alimentos.",
   "dataRefeicao": "2025-10-21T12:30:00",
@@ -92,17 +92,17 @@ Content-Type: application/json
   ]
 }
 
-### LISTAR TODAS AS REFEIÇÕES DO USUÁRIO 3
-GET http://localhost:5123/usuarios/3/refeicoes
+### LISTAR TODAS AS REFEIÇÕES DO USUÁRIO 2
+GET http://localhost:5123/usuarios/2/refeicoes
 
 ### BUSCAR A REFEIÇÃO CRIADA POR ID
 # A variável @refeicaoId é preenchida automaticamente com o ID da refeição criada acima
 @refeicaoId = {{CRIAR_REFEICAO.response.body.id}}
-GET http://localhost:5123/refeicoes/4
+GET http://localhost:5123/refeicoes/2
 
 
 ### DELETAR A REFEIÇÃO CRIADA
-DELETE http://localhost:5123/refeicoes/6
+DELETE http://localhost:5123/refeicoes/1
 
 
 ### TENTAR CRIAR UMA REFEIÇÃO PARA UM USUÁRIO INEXISTENTE (Cenário de Erro)
@@ -123,15 +123,15 @@ Content-Type: application/json
 }
 
 ### CALCULAR TOTAL DE CALORIAS DA REFEIÇÃO CRIADA
-GET http://localhost:5123/refeicoes/5/total-calorias
+GET http://localhost:5123/refeicoes/2/total-calorias
 
-### RELATÓRIO DIÁRIO DE CALORIAS PARA O USUÁRIO 3
-# (Assumindo que a refeição criada anteriormente foi no dia 2025-10-19)
-GET http://localhost:5123/usuarios/3/relatorio/diario?data=2025-10-21
+### RELATÓRIO DIÁRIO DE CALORIAS PARA O USUÁRIO 
 
-### RELATÓRIO SEMANAL DE CALORIAS PARA O USUÁRIO 1
-# (Calcula o total dos 7 dias terminando em 2025-10-19)
-GET http://localhost:5123/usuarios/3/relatorio/semanal?dataFinal=2025-10-25
+GET http://localhost:5123/usuarios/2/relatorio/diario?data=2025-10-21
+
+### RELATÓRIO SEMANAL DE CALORIAS PARA O USUÁRIO 
+# (Calcula o total dos 7 dias)
+GET http://localhost:5123/usuarios/2/relatorio/semanal?dataFinal=2025-10-25
 
 ### LISTAR PELO TIPO DA REFEIÇÃO
-GET http://localhost:5123/usuarios/3/alimentos?tipo=almoço
+GET http://localhost:5123/usuarios/2/alimentos?tipo=almoço
