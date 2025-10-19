@@ -4,12 +4,13 @@ using System.Globalization;
 using System.IO;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Http.Json;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppDataContext>();
 
-builder.Services.Configure<JsonOptions>(options =>
+builder.Services.Configure<Microsoft.AspNetCore.Http.Json.JsonOptions>(options =>
 {
     options.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
 });
@@ -356,6 +357,146 @@ app.MapDelete("/refeicoes/{id}", async (int id, AppDataContext context) =>
     await context.SaveChangesAsync();
 
     return Results.Ok("Refeição deletada com sucesso.");
+});
+
+// LISTAR TODAS AS REFEIÇÕES DE UM USUÁRIO
+app.MapGet("/usuarios/{usuarioId}/refeicoes", async (int usuarioId, AppDataContext context) =>
+{
+    // 1. Valida se o usuário existe.
+    var usuario = await context.Usuarios.FindAsync(usuarioId);
+    if (usuario == null)
+    {
+        return Results.NotFound("Usuário não encontrado.");
+    }
+
+    // 2. Busca todas as refeições para o usuárioId especificado.
+    //    Usamos Include e ThenInclude para carregar os detalhes dos alimentos de cada refeição.
+    var refeicoes = await context.Refeicoes
+        .Where(r => r.usuarioId == usuarioId)
+        .Include(r => r.RefeicaoAlimentos)
+        .ThenInclude(ra => ra.Alimento)
+        .ToListAsync();
+
+    // 3. Retorna a lista de refeições encontradas.
+    return Results.Ok(refeicoes);
+});
+
+// CALCULAR TOTAL DE CALORIAS DE UMA REFEIÇÃO
+app.MapGet("/refeicoes/{id}/total-calorias", async (int id, AppDataContext context) =>
+{
+    // 1. Busca a refeição e inclui todos os dados necessários para o cálculo.
+    var refeicao = await context.Refeicoes
+        .Include(r => r.RefeicaoAlimentos)
+        .ThenInclude(ra => ra.Alimento)
+        .FirstOrDefaultAsync(r => r.id == id);
+
+    if (refeicao == null)
+    {
+        return Results.NotFound("Refeição não encontrada.");
+    }
+
+    // 2. Usa LINQ para calcular o total de calorias de forma eficiente.
+    double totalCalorias = refeicao.RefeicaoAlimentos.Sum(ra =>
+        ra.Alimento!.CaloriasPorPorcao / 100 * ra.Quantidade
+    );
+
+    // 3. Retorna o resultado em um objeto JSON simples.
+    return Results.Ok(new
+    {
+        RefeicaoId = refeicao.id,
+        NomeRefeicao = refeicao.nome,
+        TotalCalorias = totalCalorias
+    });
+});
+
+// RELATÓRIO DE CONSUMO DIÁRIO POR USUÁRIO
+app.MapGet("/usuarios/{usuarioId}/relatorio/diario", async (int usuarioId, DateTime data, AppDataContext context) =>
+{
+    // 1. Valida se o usuário existe no banco de dados.
+    var usuario = await context.Usuarios.FindAsync(usuarioId);
+    if (usuario == null)
+    {
+        return Results.NotFound("Usuário não encontrado.");
+    }
+
+    // 2. Calcula o total de calorias para o dia especificado usando LINQ.
+    var totalCaloriasDia = await context.Refeicoes
+        // Filtra as refeições para o usuário e a data específicos.
+        .Where(r => r.usuarioId == usuarioId && r.dataRefeicao.Date == data.Date)
+        // Achata a lista de listas: pega todos os RefeicaoAlimentos de todas as refeições do dia.
+        .SelectMany(r => r.RefeicaoAlimentos)
+        // Calcula a soma das calorias para cada item da lista achatada.
+        .SumAsync(ra => (ra.Alimento!.CaloriasPorPorcao / 100) * ra.Quantidade);
+
+    // 3. Retorna o resultado.
+    return Results.Ok(new
+    {
+        UsuarioId = usuarioId,
+        Data = data.ToString("yyyy-MM-dd"),
+        TotalCaloriasDoDia = totalCaloriasDia
+    });
+});
+
+// RELATÓRIO DE CONSUMO SEMANAL POR USUÁRIO
+app.MapGet("/usuarios/{usuarioId}/relatorio/semanal", async (int usuarioId, DateTime dataFinal, AppDataContext context) =>
+{
+    // 1. Valida se o usuário existe.
+    var usuario = await context.Usuarios.FindAsync(usuarioId);
+    if (usuario == null)
+    {
+        return Results.NotFound("Usuário não encontrado.");
+    }
+
+    // 2. Define o período de 7 dias para o relatório.
+    var dataInicial = dataFinal.AddDays(-6).Date;
+    var dataFinalAjustada = dataFinal.Date;
+
+    // 3. Calcula o total de calorias para o período especificado.
+    var totalCaloriasSemana = await context.Refeicoes
+        // Filtra as refeições pelo usuário e pelo intervalo de datas.
+        .Where(r => r.usuarioId == usuarioId && 
+                    r.dataRefeicao.Date >= dataInicial && 
+                    r.dataRefeicao.Date <= dataFinalAjustada)
+        // Achata a lista de alimentos de todas as refeições encontradas.
+        .SelectMany(r => r.RefeicaoAlimentos)
+        // Soma as calorias de cada item.
+        .SumAsync(ra => (ra.Alimento!.CaloriasPorPorcao / 100) * ra.Quantidade);
+
+    // 4. Retorna o resultado.
+    return Results.Ok(new
+    {
+        UsuarioId = usuarioId,
+        Periodo = $"{dataInicial:yyyy-MM-dd} a {dataFinalAjustada:yyyy-MM-dd}",
+        TotalCaloriasDaSemana = totalCaloriasSemana
+    });
+});
+
+// LISTAR TODAS AS REFEIÇÕES DE UM USUÁRIO (COM FILTRO OPCIONAL POR TIPO/NOME)
+app.MapGet("/usuarios/{usuarioId}/alimentos", async (int usuarioId, [FromQuery] string? tipo, AppDataContext context) =>
+{
+    // 1. Valida se o usuário existe.
+    var usuario = await context.Usuarios.FindAsync(usuarioId);
+    if (usuario == null)
+    {
+        return Results.NotFound("Usuário não encontrado.");
+    }
+
+    // 2. Inicia a consulta base para as refeições do usuário.
+    var query = context.Refeicoes
+        .Where(r => r.usuarioId == usuarioId)
+        .Include(r => r.RefeicaoAlimentos)
+        .ThenInclude(ra => ra.Alimento)
+        .AsQueryable();
+
+    // 3. Adiciona o filtro de tipo, SE ele for fornecido.
+    if (!string.IsNullOrEmpty(tipo))
+    {
+        query = query.Where(r => r.nome!.ToLower() == tipo.ToLower());
+    }
+
+    // 4. Executa a consulta final e retorna a lista.
+    var refeicoes = await query.ToListAsync();
+    return Results.Ok(refeicoes);
 });
 
 app.Run();

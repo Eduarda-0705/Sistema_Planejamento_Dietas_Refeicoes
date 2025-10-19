@@ -13,8 +13,6 @@ namespace Sistema_Planejamento_Dietas_Refeicoes.Models
         {
             optionsBuilder.UseSqlite("Data Source=Sistema_Planejamento_Dietas_Refeicoes.db");
         }
-
-        //Adicionamos o método OnModelCreating para configurar o relacionamento
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<RefeicaoAlimento>()
