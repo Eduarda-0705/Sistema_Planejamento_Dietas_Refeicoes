@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors();
+
 builder.Services.AddDbContext<AppDataContext>();
 
 builder.Services.Configure<Microsoft.AspNetCore.Http.Json.JsonOptions>(options =>
@@ -15,7 +17,12 @@ builder.Services.Configure<Microsoft.AspNetCore.Http.Json.JsonOptions>(options =
     options.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
 });
 
+builder.Services.AddControllers();
+builder.Services.AddAuthorization();
+
 var app = builder.Build();
+app.UseCors("AllowFrontend");
+app.UseAuthorization();
 
 // ===== SEED DE ALIMENTOS (SOMENTE SE O BANCO ESTIVER VAZIO) =====
 using (var scope = app.Services.CreateScope())
@@ -71,8 +78,25 @@ using (var scope = app.Services.CreateScope())
         Console.WriteLine("Alimentos já cadastrados. Seed ignorado.");
     }
 }
-// ==============================================================
 
+// CORS forçado ANTES de tudo
+app.Use(async (context, next) =>
+{
+    context.Response.Headers["Access-Control-Allow-Origin"] = "*";
+    context.Response.Headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, DELETE, OPTIONS";
+    context.Response.Headers["Access-Control-Allow-Headers"] = "*";
+    
+    if (context.Request.Method == "OPTIONS")
+    {
+        context.Response.StatusCode = 200;
+        await context.Response.WriteAsync("");
+        return;
+    }
+    
+    await next();
+});
+
+app.UseAuthorization();
 
 // CRIAR USUÁRIO 
 app.MapPost("/usuarios", async (Usuario usuario, AppDataContext context) =>
