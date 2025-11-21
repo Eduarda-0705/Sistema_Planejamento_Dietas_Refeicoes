@@ -6,8 +6,8 @@ POST http://localhost:5123/usuarios
 Content-Type: application/json
 
 {
-    "Nome": "Maria",
-    "Email": "maria1@gmail.com",
+    "Nome": "duda",
+    "Email": "duda@gmail.com",
     "Altura": 1.65,
     "Peso": 65.0,
     "Objetivo": "Emagrecimento"
@@ -48,7 +48,7 @@ Content-Type: application/json
 }
 
 ### BUSCAR ALIMENTO POR ID
-GET http://localhost:5123/alimentos/417
+GET http://localhost:5123/alimentos/414
 
 ### ATUALIZAR ALIMENTO
 PUT http://localhost:5123/alimentos/417

@@ -25,9 +25,11 @@ const ExcluirUsuario: React.FC = () => {
       setUsuario(data);
       setError('');
     } catch (err: any) {
-      const mensagemErro = err.response?.data?.message 
-        || err.response?.data?.title
-    
+      const mensagemErro =
+        err.response?.data?.message ||
+        err.response?.data?.title ||
+        'Erro ao carregar usuário.';
+
       setError(mensagemErro);
       console.error(err);
     } finally {
@@ -42,20 +44,20 @@ const ExcluirUsuario: React.FC = () => {
       setLoading(true);
       setError('');
       setSuccess('');
-      
+
       await usuarioService.deletar(Number(id));
-      
+
       setSuccess('Usuário excluído com sucesso!');
-      
-      // Redirecionar após 1.5 segundos
+
       setTimeout(() => {
         navigate('/usuarios');
       }, 1500);
     } catch (err: any) {
-      const mensagemErro = err.response?.data?.message 
-        || err.response?.data?.title
-        || err.response?.data
-        
+      const mensagemErro =
+        err.response?.data?.message ||
+        err.response?.data?.title ||
+        err.response?.data;
+
       setError(typeof mensagemErro === 'string' ? mensagemErro : JSON.stringify(mensagemErro));
       setSuccess('');
       console.error('Erro completo:', err);
@@ -91,15 +93,12 @@ const ExcluirUsuario: React.FC = () => {
             <div className="card-header bg-danger text-white">
               <h3>Excluir Usuário</h3>
             </div>
+
             <div className="card-body">
               {error && (
                 <div className="alert alert-danger alert-dismissible fade show" role="alert">
                   <strong>Erro!</strong> {error}
-                  <button
-                    type="button"
-                    className="btn-close"
-                    onClick={() => setError('')}
-                  ></button>
+                  <button type="button" className="btn-close" onClick={() => setError('')}></button>
                 </div>
               )}
 
@@ -131,21 +130,25 @@ const ExcluirUsuario: React.FC = () => {
                   <p>
                     <strong>Email:</strong> {usuario.email}
                   </p>
+
                   {usuario.altura && (
                     <p>
                       <strong>Altura:</strong> {usuario.altura} m
                     </p>
                   )}
+
                   {usuario.peso && (
                     <p>
                       <strong>Peso:</strong> {usuario.peso} kg
                     </p>
                   )}
+
                   {usuario.objetivo && (
                     <p>
                       <strong>Objetivo:</strong> {usuario.objetivo}
                     </p>
                   )}
+
                   {usuario.dataCadastro && (
                     <p>
                       <strong>Data de Cadastro:</strong>{' '}
@@ -159,6 +162,7 @@ const ExcluirUsuario: React.FC = () => {
                 <Link to="/usuarios" className="btn btn-secondary">
                   Cancelar
                 </Link>
+
                 <button
                   onClick={handleExcluir}
                   className="btn btn-danger"

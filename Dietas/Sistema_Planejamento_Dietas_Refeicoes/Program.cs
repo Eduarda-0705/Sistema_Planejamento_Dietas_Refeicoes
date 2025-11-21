@@ -102,13 +102,13 @@ app.UseAuthorization();
 app.MapPost("/usuarios", async (Usuario usuario, AppDataContext context) =>
 {
     // Validações simples
-    if (string.IsNullOrEmpty(usuario.nome))
+    if (string.IsNullOrEmpty(usuario.Nome))
         return Results.BadRequest("Nome é obrigatório");
 
-    if (string.IsNullOrEmpty(usuario.email))
+    if (string.IsNullOrEmpty(usuario.Email))
         return Results.BadRequest("Email é obrigatório");
 
-    if (usuario.Altura <= 0)
+    if (usuario.Altura<= 0)
         return Results.BadRequest("Altura deve ser maior que zero");
 
     if (usuario.Peso <= 0)
@@ -119,13 +119,15 @@ app.MapPost("/usuarios", async (Usuario usuario, AppDataContext context) =>
 
     // Verificar se email já existe
     var emailExiste = await context.Usuarios!
-        .AnyAsync(u => u.email == usuario.email);
+        .AnyAsync(u => u.Email == usuario.Email);
     
     if (emailExiste)
         return Results.BadRequest("Email já cadastrado");
 
     // Inicializar lista de refeições
     usuario.Refeicoes = new List<Refeicao>();
+
+      usuario.DataCadastro = DateTime.Now;
 
     // Salvar no banco
     context.Usuarios!.Add(usuario);
@@ -136,6 +138,8 @@ app.MapPost("/usuarios", async (Usuario usuario, AppDataContext context) =>
         message = "Usuário criado com sucesso!",
         usuario = usuario
     });
+
+    
 });
 
 
@@ -156,15 +160,15 @@ app.MapPut("/usuarios/{id}", async (int id, Usuario usuarioAtualizado, AppDataCo
         return Results.NotFound("Usuário não encontrado");
 
     // Validações básicas
-    if (string.IsNullOrEmpty(usuarioAtualizado.nome))
+    if (string.IsNullOrEmpty(usuarioAtualizado.Nome))
         return Results.BadRequest("Nome é obrigatório");
 
-    if (string.IsNullOrEmpty(usuarioAtualizado.email))
+    if (string.IsNullOrEmpty(usuarioAtualizado.Email))
         return Results.BadRequest("Email é obrigatório");
 
     // Atualizar dados
-    usuario.nome = usuarioAtualizado.nome;
-    usuario.email = usuarioAtualizado.email;
+    usuario.Nome = usuarioAtualizado.Nome;
+    usuario.Email = usuarioAtualizado.Email;
     usuario.Altura = usuarioAtualizado.Altura;
     usuario.Peso = usuarioAtualizado.Peso;
     usuario.Objetivo = usuarioAtualizado.Objetivo;
@@ -186,7 +190,7 @@ app.MapDelete("/usuarios/{id}", async (int id, AppDataContext context) =>
 {
     var usuario = await context.Usuarios!
         .Include(u => u.Refeicoes)
-        .FirstOrDefaultAsync(u => u.id == id);
+        .FirstOrDefaultAsync(u => u.Id == id);
 
     if (usuario == null)
         return Results.NotFound("Usuário não encontrado");
@@ -201,6 +205,18 @@ app.MapDelete("/usuarios/{id}", async (int id, AppDataContext context) =>
 
     return Results.Ok("Usuário excluído com sucesso!");
 });
+
+// BUSCAR USUÁRIO POR ID - GET /usuarios/{id}
+app.MapGet("/usuarios/{id}", async (int id, AppDataContext context) =>
+{
+    var usuario = await context.Usuarios!.FindAsync(id);
+
+    if (usuario == null)
+        return Results.NotFound("Usuário não encontrado");
+
+    return Results.Ok(usuario);
+});
+
 
 //////////////////////////////////////////////PARTE DO ALIMENTO/////////////////////////////////////////////////////////////////////
 
@@ -312,14 +328,14 @@ app.MapDelete("/alimentos/{id}", async (int id, AppDataContext context) =>
 app.MapPost("/refeicoes", async (Refeicao refeicao, AppDataContext context) =>
 {
     // 1. Validar se o usuário associado à refeição existe
-    var usuario = await context.Usuarios.FindAsync(refeicao.usuarioId);
+    var usuario = await context.Usuarios.FindAsync(refeicao.UsuarioId);
     if (usuario == null)
     {
         return Results.NotFound("Usuário não encontrado.");
     }
 
     // Anexa o usuário encontrado ao objeto da refeição
-    refeicao.usuario = usuario;
+    refeicao.Usuario = usuario;
 
     // 2. Iterar sobre os alimentos recebidos para validar e carregar os dados completos
     if (refeicao.RefeicaoAlimentos != null && refeicao.RefeicaoAlimentos.Any())
@@ -341,7 +357,7 @@ app.MapPost("/refeicoes", async (Refeicao refeicao, AppDataContext context) =>
     context.Refeicoes.Add(refeicao);
     await context.SaveChangesAsync();
 
-    return Results.Created($"/refeicoes/{refeicao.id}", refeicao);
+    return Results.Created($"/refeicoes/{refeicao.Id}", refeicao);
 });
 
 // BUSCAR REFEIÇÃO POR ID
@@ -352,7 +368,7 @@ app.MapGet("/refeicoes/{id}", async (int id, AppDataContext context) =>
     var refeicao = await context.Refeicoes
         .Include(r => r.RefeicaoAlimentos)
         .ThenInclude(ra => ra.Alimento)
-        .FirstOrDefaultAsync(r => r.id == id);
+        .FirstOrDefaultAsync(r => r.Id == id);
 
     if (refeicao == null)
     {
@@ -368,7 +384,7 @@ app.MapDelete("/refeicoes/{id}", async (int id, AppDataContext context) =>
     // Busca a refeição, garantindo que suas associações na tabela de junção sejam carregadas.
     var refeicao = await context.Refeicoes
         .Include(r => r.RefeicaoAlimentos)
-        .FirstOrDefaultAsync(r => r.id == id);
+        .FirstOrDefaultAsync(r => r.Id == id);
 
     if (refeicao == null)
     {
@@ -396,7 +412,7 @@ app.MapGet("/usuarios/{usuarioId}/refeicoes", async (int usuarioId, AppDataConte
     // 2. Busca todas as refeições para o usuárioId especificado.
     //    Usamos Include e ThenInclude para carregar os detalhes dos alimentos de cada refeição.
     var refeicoes = await context.Refeicoes
-        .Where(r => r.usuarioId == usuarioId)
+        .Where(r => r.UsuarioId == usuarioId)
         .Include(r => r.RefeicaoAlimentos)
         .ThenInclude(ra => ra.Alimento)
         .ToListAsync();
@@ -412,7 +428,7 @@ app.MapGet("/refeicoes/{id}/total-calorias", async (int id, AppDataContext conte
     var refeicao = await context.Refeicoes
         .Include(r => r.RefeicaoAlimentos)
         .ThenInclude(ra => ra.Alimento)
-        .FirstOrDefaultAsync(r => r.id == id);
+        .FirstOrDefaultAsync(r => r.Id == id);
 
     if (refeicao == null)
     {
@@ -427,8 +443,8 @@ app.MapGet("/refeicoes/{id}/total-calorias", async (int id, AppDataContext conte
     // 3. Retorna o resultado em um objeto JSON simples.
     return Results.Ok(new
     {
-        RefeicaoId = refeicao.id,
-        NomeRefeicao = refeicao.nome,
+        RefeicaoId = refeicao.Id,
+        NomeRefeicao = refeicao.Nome,
         TotalCalorias = totalCalorias
     });
 });
@@ -446,7 +462,7 @@ app.MapGet("/usuarios/{usuarioId}/relatorio/diario", async (int usuarioId, DateT
     // 2. Calcula o total de calorias para o dia especificado usando LINQ.
     var totalCaloriasDia = await context.Refeicoes
         // Filtra as refeições para o usuário e a data específicos.
-        .Where(r => r.usuarioId == usuarioId && r.dataRefeicao.Date == data.Date)
+        .Where(r => r.UsuarioId == usuarioId && r.DataRefeicao.Date == data.Date)
         // Achata a lista de listas: pega todos os RefeicaoAlimentos de todas as refeições do dia.
         .SelectMany(r => r.RefeicaoAlimentos)
         // Calcula a soma das calorias para cada item da lista achatada.
@@ -478,9 +494,9 @@ app.MapGet("/usuarios/{usuarioId}/relatorio/semanal", async (int usuarioId, Date
     // 3. Calcula o total de calorias para o período especificado.
     var totalCaloriasSemana = await context.Refeicoes
         // Filtra as refeições pelo usuário e pelo intervalo de datas.
-        .Where(r => r.usuarioId == usuarioId && 
-                    r.dataRefeicao.Date >= dataInicial && 
-                    r.dataRefeicao.Date <= dataFinalAjustada)
+        .Where(r => r.UsuarioId == usuarioId && 
+                    r.DataRefeicao.Date >= dataInicial && 
+                    r.DataRefeicao.Date <= dataFinalAjustada)
         // Achata a lista de alimentos de todas as refeições encontradas.
         .SelectMany(r => r.RefeicaoAlimentos)
         // Soma as calorias de cada item.
@@ -507,7 +523,7 @@ app.MapGet("/usuarios/{usuarioId}/alimentos", async (int usuarioId, [FromQuery] 
 
     // 2. Inicia a consulta base para as refeições do usuário.
     var query = context.Refeicoes
-        .Where(r => r.usuarioId == usuarioId)
+        .Where(r => r.UsuarioId == usuarioId)
         .Include(r => r.RefeicaoAlimentos)
         .ThenInclude(ra => ra.Alimento)
         .AsQueryable();
@@ -515,7 +531,7 @@ app.MapGet("/usuarios/{usuarioId}/alimentos", async (int usuarioId, [FromQuery] 
     // 3. Adiciona o filtro de tipo, SE ele for fornecido.
     if (!string.IsNullOrEmpty(tipo))
     {
-        query = query.Where(r => r.nome!.ToLower() == tipo.ToLower());
+        query = query.Where(r => r.Nome!.ToLower() == tipo.ToLower());
     }
 
     // 4. Executa a consulta final e retorna a lista.

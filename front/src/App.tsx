@@ -4,6 +4,7 @@ import ListarUsuarios from './pages/usuario/ListarUsuarios';
 import CadastrarUsuario from './pages/usuario/CadastrarUsuario';
 import EditarUsuario from './pages/usuario/EditarUsuario';
 import ExcluirUsuario from './pages/usuario/ExcluirUsuario';
+import ListarAlimentos from './pages/usuario/alimento/ListarAlimento';
 
 function App() {
   return (
@@ -29,7 +30,12 @@ function App() {
                   <Link className="nav-link" to="/usuarios">
                     Usuários
                   </Link>
+                  
                 </li>
+                <li className="nav-item">
+  <Link className="nav-link" to="/alimentos">Alimentos</Link>
+</li>
+
               </ul>
             </div>
           </div>
@@ -42,6 +48,7 @@ function App() {
           <Route path="/usuarios/cadastrar" element={<CadastrarUsuario />} />
           <Route path="/usuarios/editar/:id" element={<EditarUsuario />} />
           <Route path="/usuarios/excluir/:id" element={<ExcluirUsuario />} />
+          <Route path="/alimentos" element={<ListarAlimentos/>} />
         </Routes>
       </div>
     </Router>
@@ -62,6 +69,16 @@ const Home: React.FC = () => {
         <Link className="btn btn-primary btn-lg" to="/usuarios" role="button">
           Gerenciar Usuários
         </Link>
+    
+       <p className="mt-4">
+  Deseja explorar a nossa base de alimentos?
+  <Link
+    to="/alimentos"
+    className="btn btn-sm btn-success ms-3"
+  >
+    Clique aqui
+  </Link>
+        </p>
       </div>
     </div>
   );
