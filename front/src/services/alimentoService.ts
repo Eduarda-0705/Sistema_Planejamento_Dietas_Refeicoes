@@ -1,5 +1,5 @@
 import axios from "axios";
-import Alimento from "../Alimento";
+import Alimento from "../types/Alimento";
 
 const API_URL = "http://localhost:5123/alimentos";
 

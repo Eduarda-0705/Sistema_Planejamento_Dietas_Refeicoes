@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import alimentoService from "../../../services/alimentoService";
-import Alimento from "../../../Alimento";
+import Alimento from "../../../types/Alimento";
 
 const ListarAlimentos: React.FC = () => {
   const [alimentos, setAlimentos] = useState<Alimento[]>([]);
