@@ -13,6 +13,8 @@ import ListarAlimentos from './pages/usuario/alimento/ListarAlimento';
 // Importações de Refeição (Pessoa 3)
 import ListarRefeicoes from './pages/refeicao/ListarRefeicoes';
 import CadastrarRefeicao from './pages/refeicao/CadastrarRefeicao';
+import RelatorioDiario from './pages/relatorio/RelatorioDiario';
+import RelatorioSemanal from './pages/relatorio/RelatorioSemanal';
 
 function App() {
   return (
@@ -49,6 +51,19 @@ function App() {
                     Refeições
                   </Link>
                 </li>
+             <li className="nav-item">
+                    <Link className="nav-link" to="/relatorio-diario">
+                             Relatório Diário
+                   </Link>
+                </li>
+
+              <li className="nav-item">
+                   <Link className="nav-link" to="/relatorio-semanal">
+               Relatório Semanal
+                  </Link>
+              </li>
+
+
               </ul>
             </div>
           </div>
@@ -70,6 +85,10 @@ function App() {
           {/* Rotas de Refeições */}
           <Route path="/refeicoes" element={<ListarRefeicoes />} />
           <Route path="/refeicoes/cadastrar" element={<CadastrarRefeicao />} />
+
+          <Route path="/relatorio-diario" element={<RelatorioDiario/>} />
+          <Route path="/relatorio-semanal" element={<RelatorioSemanal/>} />
+
         </Routes>
       </div>
     </Router>
@@ -101,6 +120,22 @@ const Home: React.FC = () => {
               Registrar Refeição
             </Link>
           </div>
+          <br></br>
+
+          <p className="mt-2 text-muted fs-5">
+             Já fez o seu cadastro? Acompanhe suas refeições diárias e semanais.
+          </p>
+
+                  <div className="d-flex flex-wrap gap-3 mt-3">
+          <Link className="btn btn-outline-success btn-lg" to="/relatorio-diario">
+                  Ver Relatório Diário
+          </Link>
+
+            <Link className="btn btn-outline-success btn-lg" to="/relatorio-semanal">
+                   Ver Relatório Semanal
+             </Link>
+          </div>
+
 
           {/* Seção de Alimentos (Restaurada e destacada) */}
           <div className="mt-4 pt-3">
